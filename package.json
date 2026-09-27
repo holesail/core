@@ -1,6 +1,6 @@
 {
   "name": "@holesail/core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "P2P core behind the Holesail CLI",
   "keywords": [
     "holesail",
@@ -21,6 +21,16 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test"
+    "test": "npm run check && node test/index.js",
+    "check": "npx prettier . --check",
+    "format": "npx prettier . --write"
+  },
+  "dependencies": {
+    "@holesail/invite": "^1.2.0",
+    "holesail-client": "^3.0.0-dev.0",
+    "holesail-server": "^3.0.0-dev.0",
+    "prettier": "^3.9.9",
+    "prettier-config-holepunch": "^2.0.0",
+    "ready-resource": "^1.2.0"
   }
 }
