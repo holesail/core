@@ -1,0 +1,26 @@
+{
+  "name": "@holesail/core",
+  "version": "1.0.0",
+  "description": "P2P core behind the Holesail CLI",
+  "keywords": [
+    "holesail",
+    "p2p",
+    "reverse",
+    "proxy"
+  ],
+  "homepage": "https://github.com/holesail/core#readme",
+  "bugs": {
+    "url": "https://github.com/holesail/core/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holesail/core.git"
+  },
+  "license": "AGPL-3.0",
+  "author": "supersuryaansh",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  }
+}
