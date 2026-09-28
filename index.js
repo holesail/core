@@ -2,6 +2,7 @@ const ReadyResource = require('ready-resource')
 const HolesailClient = require('holesail-client')
 const HolesailServer = require('holesail-server')
 const HyperDHT = require('hyperdht')
+const b4a = require('b4a')
 const { randomSeed } = require('@holesail/invite')
 
 class Holesail extends ReadyResource {
@@ -22,14 +23,6 @@ class Holesail extends ReadyResource {
 
     this.proxy = null
     this.running = false
-  }
-
-  static async probe(invite) {
-    return await HolesailClient.probe(invite)
-  }
-
-  static randomSeed() {
-    return randomSeed()
   }
 
   async _open() {
@@ -71,6 +64,14 @@ class Holesail extends ReadyResource {
     await this.proxy.resume()
   }
 
+  static async probe(invite, dht = null) {
+    return await HolesailClient.probe(invite, dht)
+  }
+
+  static randomSeed() {
+    return randomSeed()
+  }
+
   get info() {
     const proxyInfo = this.proxy.info
     const info = {
@@ -80,11 +81,10 @@ class Holesail extends ReadyResource {
       port: proxyInfo.port,
       host: proxyInfo.host,
       udp: proxyInfo.udp,
-      seed: proxyInfo.seed,
       invite: proxyInfo.invite
     }
 
-    if (this.server) info.seed = this.seed
+    if (this.server) info.seed = b4a.toString(proxyInfo.seed, 'hex')
     return info
   }
 

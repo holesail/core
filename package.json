@@ -22,15 +22,23 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run check && node test/index.js",
+    "test-bare": "npm run check && bare test/index.js",
     "check": "npx prettier . --check",
     "format": "npx prettier . --write"
   },
   "dependencies": {
     "@holesail/invite": "^1.2.0",
+    "b4a": "^1.9.0",
     "holesail-client": "^3.0.0-dev.0",
     "holesail-server": "^3.0.0-dev.0",
-    "prettier": "^3.9.9",
-    "prettier-config-holepunch": "^2.0.0",
+    "hyperdht": "^6.34.0",
     "ready-resource": "^1.2.0"
+  },
+  "devDependencies": {
+    "brittle": "^3.19.1",
+    "dgram": "npm:bare-dgram@^1.0.1",
+    "net": "npm:bare-net@^2.3.3",
+    "prettier": "^3.9.9",
+    "prettier-config-holepunch": "^2.0.0"
   }
 }
